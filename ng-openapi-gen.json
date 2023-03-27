@@ -1,0 +1,449 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Shoe Store API",
+    "version": "1.0.0",
+    "description": "An API for managing a shoe store's inventory and orders."
+  },
+  "servers": [
+    {
+      "url": "https://localhost:8000",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/shoes": {
+      "get": {
+        "tags": [
+          "Shoes"
+        ],
+        "summary": "Get all shoes",
+        "operationId": "getAllShoes",
+        "responses": {
+          "200": {
+            "description": "A list of shoes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shoe"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Shoes"
+        ],
+        "summary": "Add a new shoe",
+        "operationId": "addShoe",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewShoe"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The newly created shoe",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shoe"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/care": {
+      "get": {
+        "tags": [
+          "Shoe care"
+        ],
+        "summary": "Get all shoe care",
+        "operationId": "getAllShoeCare",
+        "responses": {
+          "200": {
+            "description": "A list of shoe care",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShoeCare"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Shoe care"
+        ],
+        "summary": "Add a new shoe care",
+        "operationId": "addShoeCare",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewShoeCare"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The newly created shoe care",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShoeCare"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/shoes/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "description": "The ID of the shoe to retrieve or update"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Shoes"
+        ],
+        "summary": "Get a shoe by ID",
+        "operationId": "getShoeById",
+        "responses": {
+          "200": {
+            "description": "The requested shoe",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shoe"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Shoe not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Shoes"
+        ],
+        "summary": "Update a shoe by ID",
+        "operationId": "updateShoeById",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateShoe"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated shoe",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shoe"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Shoe not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Shoes"
+        ],
+        "summary": "Delete a shoe by ID",
+        "operationId": "deleteShoeById",
+        "responses": {
+          "204": {
+            "description": "Shoe deleted"
+          },
+          "404": {
+            "description": "Shoe not found"
+          }
+        }
+      }
+    },
+    "/shoeCare/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "description": "The ID of the shoe are to retrieve or update"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Shoe care"
+        ],
+        "summary": "Get a shoe care by ID",
+        "operationId": "getShoeCareById",
+        "responses": {
+          "200": {
+            "description": "The requested shoe care",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShoeCare"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Shoe care not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Shoe care"
+        ],
+        "summary": "Update a shoe care by ID",
+        "operationId": "updateShoeCareById",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateShoeCare"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated shoe care",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShoeCare"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Shoe care not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Shoe care"
+        ],
+        "summary": "Delete a shoe care by ID",
+        "operationId": "deleteShoeCareById",
+        "responses": {
+          "204": {
+            "description": "Shoe care deleted"
+          },
+          "404": {
+            "description": "Shoe care not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Shoe": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The unique ID of the shoe"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the shoe"
+          },
+          "brand": {
+            "type": "string",
+            "description": "The brand of the shoe"
+          },
+          "size": {
+            "type": "string",
+            "description": "The size of the shoe"
+          },
+          "price": {
+            "type": "number",
+            "format": "float",
+            "description": "The price of the shoe"
+          }
+        },
+        "required": [
+          "name",
+          "brand",
+          "size",
+          "price"
+        ]
+      },
+      "NewShoe": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the new shoe"
+          },
+          "brand": {
+            "type": "string",
+            "description": "The brand of the new shoe"
+          },
+          "size": {
+            "type": "string",
+            "description": "The size of the new shoe"
+          },
+          "price": {
+            "type": "number",
+            "format": "float",
+            "description": "The price of the new shoe"
+          }
+        },
+        "required": [
+          "name",
+          "brand",
+          "size",
+          "price"
+        ]
+      },
+      "UpdateShoe": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The updated name of the shoe"
+          },
+          "brand": {
+            "type": "string",
+            "description": "The updated brand of the shoe"
+          },
+          "size": {
+            "type": "string",
+            "description": "The updated size of the shoe"
+          },
+          "price": {
+            "type": "number",
+            "format": "float",
+            "description": "The updated price of the shoe"
+          }
+        }
+      },
+      "ShoeCare": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "format": "int64",
+            "description": "The unique ID of the shoe care"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the shoe care"
+          },
+          "brand": {
+            "type": "string",
+            "description": "The brand of the shoe care"
+          },
+          "price": {
+            "type": "number",
+            "format": "float",
+            "description": "The price of the shoe care"
+          }
+        },
+        "required": [
+          "name",
+          "brand",
+          "price"
+        ]
+      },
+      "NewShoeCare": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "format": "int64",
+            "description": "The unique ID of the new shoe care"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the new shoe care"
+          },
+          "brand": {
+            "type": "string",
+            "description": "The brand of the new shoe care"
+          },
+          "price": {
+            "type": "number",
+            "format": "float",
+            "description": "The price of the new shoe care"
+          }
+        },
+        "required": [
+          "name",
+          "brand",
+          "price"
+        ]
+      },
+      "UpdateShoeCare": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The updated name of the shoe care"
+          },
+          "brand": {
+            "type": "string",
+            "description": "The updated brand of the shoe care"
+          },
+          "price": {
+            "type": "number",
+            "format": "float",
+            "description": "The updated price of the shoe care"
+          }
+        }
+      }
+    }
+  }
+}

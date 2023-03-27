@@ -1,0 +1,8 @@
+<div class="care-card-container">
+    <div class="care-card" *ngFor="let care of cares">
+      <a routerLink="{{care.id}}" class="care-name">{{ care.name }}</a>
+      <h2 class="care-brand">{{ care.brand }}</h2>  
+      <p class="care-price">{{ care.price | currency }}</p>
+    </div>
+  </div>
+  

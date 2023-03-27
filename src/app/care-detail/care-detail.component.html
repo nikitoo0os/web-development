@@ -1,0 +1,13 @@
+<div *ngIf="care">
+  <h2>{{care.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{care.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="care.name" placeholder="name"/>
+    </label>
+  </div>
+  <div>
+    <button (click)="updateCare()">Изменить</button>
+    <button (click)="deleteCare()">Удалить</button>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+.shoe-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  padding-top: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.shoe-card {
+  width: 23%;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #ccc;
+}
+
+.shoe-card h2 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.shoe-card .shoe-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.shoe-card .shoe-price {
+  font-weight: bold;
+  color: #009933;
+}

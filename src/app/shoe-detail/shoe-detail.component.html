@@ -1,0 +1,13 @@
+<div *ngIf="shoe">
+    <h2>{{shoe.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{shoe.id}}</div>
+    <div>
+      <label>name:
+        <input [(ngModel)]="shoe.name" placeholder="name"/>
+      </label>
+    </div>
+    <div>
+      <button (click)="updateShoe()">Изменить</button>
+      <button (click)="deleteShoe()">Удалить</button>
+    </div>
+  </div>
