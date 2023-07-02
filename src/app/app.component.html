@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Fit App</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="training">Упражнения</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="isAuthUser"v routerLink="exercise">Мои тренировки</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" routerLink="athlete">Атлеты</a>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="!isAuthUser" routerLink="login">Авторизация</a>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" (click)="logout()" *ngIf="isAuthUser">Выход</button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

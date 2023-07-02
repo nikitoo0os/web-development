@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>Athlete Details</h1>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ athlete.firstName }} {{ athlete.lastName }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Exercises:</h6>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let exercise of athlete.exercises">
+            Exercise ID: {{ exercise.id }} - Elapsed Time: {{ exercise.elapsedTime }} minutes
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  

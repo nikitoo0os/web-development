@@ -1,0 +1,16 @@
+<div class="container">
+    <h1>Training Details</h1>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ training.name }}</h5>
+        <p class="card-text">{{ training.description }}</p>
+        <h6 class="card-subtitle mb-2 text-muted">Exercises:</h6>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let exercise of training.exercises">
+            {{ exercise.id }} - {{ exercise.elapsedTime }} minutes
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  

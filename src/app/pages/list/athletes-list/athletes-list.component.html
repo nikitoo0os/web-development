@@ -1,0 +1,28 @@
+
+<div class="container">
+    <h1>Athlete List</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Exercises</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let athlete of athletes">
+          <td>{{ athlete.id }}</td>
+          <td>{{ athlete.firstName }}</td>
+          <td>{{ athlete.lastName }}</td>
+          <td>
+            <ul>
+              <li *ngFor="let exercise of athlete.exercises">{{ exercise.startDate }}</li>
+            </ul>
+          </td>
+          <td><a type="button" class="btn btn-primary" href="exercise/new">Кнопка</a>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

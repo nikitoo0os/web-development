@@ -1,0 +1,16 @@
+<div class="container">
+    <h1>Exercise Details</h1>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Exercise ID: {{ exercise.id }}</h5>
+        <p class="card-text">Elapsed Time: {{ exercise.elapsedTime }} minutes</p>
+        <p class="card-text">Is Completed: {{ exercise.isCompleted }}</p>
+        <p class="card-text">Start Date: {{ exercise.startDate | date }}</p>
+        <h6 class="card-subtitle mb-2 text-muted">Athlete:</h6>
+        <p class="card-text">{{ exercise.athlete.firstName }} {{ exercise.athlete.lastName }}</p>
+        <h6 class="card-subtitle mb-2 text-muted">Training:</h6>
+        <p class="card-text">{{ exercise.training.name }}</p>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,20 @@
+<div class="container">
+    <h1>История тренировок</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>№</th>
+          <th>Затраченное время</th>
+          <th>Дата</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let exercise of exercises" >
+          <td *ngIf="exercise.isCompleted">{{ exercise.id }}</td>
+          <td *ngIf="exercise.isCompleted">{{ exercise.elapsedTime + 'с'}}</td>
+          <td *ngIf="exercise.isCompleted">{{ exercise.startDate | date }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

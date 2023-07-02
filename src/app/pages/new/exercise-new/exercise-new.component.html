@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Выбрана тренировка: {{training.name}}</h1>
+  
+  <div class="form-group">
+    <label for="trainingSelect"></label>
+  </div>
+  
+  <button class="btn btn-primary" (click)="startTraining()">Старт</button>
+  
+  <div *ngIf="isTrainingStarted">
+    <h2>Прошедшее время: {{ elapsedTime }}</h2>
+    <button class="btn btn-danger" (click)="finishTraining()">Завершить тренировку</button>
+  </div>
+</div>

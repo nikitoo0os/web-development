@@ -1,0 +1,22 @@
+<div class="container">
+    <h1>Упражнения</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>№</th>
+          <th>Название</th>
+          <th>Описание</th>
+          <th  *ngIf="user != null">Действие</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let training of trainings">
+          <td>{{ training.id }}</td>
+          <td>{{ training.name }}</td>
+          <td>{{ training.description }}</td>
+          <td *ngIf="user != null"><a type="button" class="btn btn-primary" href="exercise/new/{{training.id}} ">Начать</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
